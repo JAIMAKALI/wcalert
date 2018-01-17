@@ -1,0 +1,13 @@
+.heading-row  {
+  text-align: center;
+  background-color: green;
+}
+
+.second-row {
+  text-align: center;
+  margin-top: 3%;
+}
+
+#painc_button {
+  cursor: pointer;
+}
