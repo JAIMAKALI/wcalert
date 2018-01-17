@@ -11,6 +11,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
+
+var port=process.env.PORT || 3000;
+
 app.get('/',(req,res)=>{
 
   res.sendFile(path.join(__dirname,'../public/home.html'));
@@ -51,7 +54,7 @@ res.send(params);
 
 })
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
   console.log('server is running on port 3000')
 });
 
