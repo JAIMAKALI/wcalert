@@ -5,8 +5,8 @@
 <style media="screen">
 #out{
      height: 400px;
-     width: 50%;
-     margin-left: 200px;
+     width: 100%;
+     margin-left: 10px;
    }
 </style>
   <!-- Basic Page Needs
@@ -29,8 +29,9 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/snap.css">
 <script type="text/javascript" src="script/main.js"></script>
-
+<script type="text/javascript" src="script/snap.js"></script>
 
 </head>
 <body>
@@ -45,7 +46,7 @@
       <button class="button-primary" id="Panic" onclick='geoFindMe()'>GET HELP!</button>
     </div>
     <div class="row third-row">
-      <form id="myform" action="/send" method="post">
+      <form id="myform" action="/send" method="post" onsubmit="myFunction()">
         <div class="row">
           <div class="six columns">
             <label for="latitude">Latitude:</label>
@@ -76,18 +77,19 @@
             <input type="text" name="police_address" value="" id='police_address'>
           </div>
         </div>
-        <div class="row">
-          <input class="button-primary" type="submit" value="Submit">
-        </div>
-      </form>
+        <div class="row" >
+  <input class="button-primary" type="submit" value="Submit">
+</div>
+</form>
     </div>
   </div>
   <div id='out'></div>
-
+  <div id='snackbar'>Message is sent</div>
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 <script type="text/javascript" src="script/main.js"></script>
+<script type="text/javascript" src="script/snap.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2dc9erOeSpqTdKT59PhrC3d7laj_V9fM&libraries=places"
  type="text/javascript"></script>
 </html>

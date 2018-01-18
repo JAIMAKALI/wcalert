@@ -15,7 +15,11 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "express-validator": "^4.3.0",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.13.7",
     "plivo": "^0.4.2",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "validator": "^9.2.0"
   }
 }
