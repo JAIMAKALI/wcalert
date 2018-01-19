@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="css/data.css">
+    <title>data</title>
+  </head>
+  <body>
+
+    <form class="gform_wrapper" method='post'>
+  <div id="field_1_19" class="gfield membership-options gfield_price gfield_price_1_19 gfield_product_1_19 gfield_contains_required field_sublabel_below field_description_below">
+    <label class="gfield_label" for="input_1_19">Please select State<span class="gfield_required">*</span></label>
+    <div class="ginput_container ginput_container_select">
+      <select name="state" id="input_1_19" class="medium gfield_select" tabindex="16" aria-required="true" aria-invalid="false">
+      <option value="" selected="selected" class="gf_placeholder">Please select State </option>
+
+
+      <option value="Andhra Pradesh">Andhra Pradesh</option>
+      <option value="Arunachal Pradesh">Arunachal Pradesh	</option>
+      <option value="Assam">Assam</option>
+      <option value="Bihar">Bihar</option>
+      <option value="Chandigarh">Chandigarh</option>
+      <option value="Chhattisgarh">Chhattisgarh</option>
+      <option value="National Capital Territory of Delhi">National Capital Territory of Delhi</option>
+      <option value="Goa">	Goa</option>
+      <option value="Gujarat">	Gujarat</option>
+      <option value="Haryana">Haryana</option>
+      <option value="Himachal Pradesh">Himachal Pradesh</option>
+      <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+      <option value="Jharkhand">Jharkhand</option>
+      <option value="Karnataka">Karnataka</option>
+      <option value=	"Kerala">	Kerala</option>
+      <option value="Madhya Pradesh">Madhya Pradesh</option>
+      <option value="Maharashtra">Maharashtra</option>
+      <option value="Manipur">Manipur</option>
+      <option value="Meghalaya">Meghalaya</option>
+        <option value="	Mizoram">	Mizoram</option>
+       <option value="Nagaland">Nagaland</option>
+        <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+
+
+      <option value="West Bengal">West Bengal</option>
+
+      </select>
+    </div>
+  </div>
+  <input type='submit' value='submit'/>
+  </form>
+
+    <section>
+      <!--for demo wrap-->
+      <h1>District-wise Crimes committed against Women during 2017 of diffrent state</h1>
+      <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <thead>
+            <tr>
+              <th>Distric</th>
+              <th>sexual_harassment</th>
+              <th>Murder</th>
+              <th>Rape</th>
+              <th>Dowary Death</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody>
+            {{#if title}}
+            {{# each title}}
+            <tr>
+              <td><strong>{{this.district}}</strong></td>
+              <td>{{this.sexual_harassment}} </td>
+              <td>{{this.murder}}</td>
+              <td>{{this.rape}}</td>
+              <td>{{this.dowry_deaths}}</td>
+            </tr>
+            {{/each}}
+{{/if}}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+  </body>
+</html>

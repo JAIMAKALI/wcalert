@@ -10,7 +10,7 @@ var validator=require('validator');
     email:{
       type:String,
       required:true,
-      unique:true,
+      unique:false,
       validate:{
         validator:validator.isEmail,
         message:"{value} is not valid email"

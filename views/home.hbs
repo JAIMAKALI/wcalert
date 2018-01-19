@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<style media="screen">
+#out{
+     height: 400px;
+     width: 100%;
+     margin-left: 10px;
+   }
+</style>
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>WCAlert!</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/snap.css">
+<script type="text/javascript" src="script/main.js"></script>
+<script type="text/javascript" src="script/snap.js"></script>
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row heading-row">
+      <h1>WCAlert!</h1>
+    </div>
+    <div class="row second-row">
+      <button class="button-primary" id="Panic" onclick='geoFindMe()'>GET HELP!</button>
+    </div>
+    <div class="row third-row">
+      <form id="myform" action="/send" method="post" onsubmit="myFunction()">
+        <div class="row">
+          <div class="six columns">
+            <label for="latitude">Latitude:</label>
+            <input type="text" name="persons_lat" value="" id='persons_lat'>
+          </div>
+          <div class="six columns">
+            <label for="longitude">Longitude:</label>
+            <input type="text" name="persons_lon" value="" id='persons_lon'>
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns">
+            <label for="accuracy">Accuracy:</label>
+            <input type="text" name="location_accuracy" value="" id='location_accuracy'>
+          </div>
+          <div class="six columns">
+            <label for="Address">your current location</label>
+            <input type="text" name="location_address" value="" id='location_address'>
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns">
+            <label for="phone_no">Nearest police phone no</label>
+            <input type="text" name="phone_no" value="" id='phone_no'>
+          </div>
+          <div class="six columns">
+            <label for="phone_no">Nearest police station name</label>
+            <input type="text" name="police_address" value="" id='police_address'>
+          </div>
+        </div>
+        <div class="row" >
+  <input class="button-primary" type="submit" value="Send message">
+</div>
+</form>
+    </div>
+  </div>
+  <div id='out'></div>
+  <div id='snackbar'>Message is sent</div>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+<script type="text/javascript" src="script/main.js"></script>
+<script type="text/javascript" src="script/snap.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2dc9erOeSpqTdKT59PhrC3d7laj_V9fM&libraries=places"
+ type="text/javascript"></script>
+</html>
