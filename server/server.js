@@ -1,76 +1,82 @@
 
-var express=require('express');
-var request=require('request');
-var plivo = require('plivo');
-var app=express();
-var path=require('path');
-var bodyParser=require('body-parser');
-var hbs=require('hbs');
-var {mongoose}=require('./db/mongoose.js');
-var {user}=require('./models/users.js');
-var expressValidator=require('express-validator');
+var express=require('express'); //for server
+var request=require('request');//for json request
+var plivo = require('plivo'); //for send Message
+var app=express();    //create a function
+var path=require('path'); //for join directory
+var bodyParser=require('body-parser'); //for taking form
+var hbs=require('hbs');//view engine
+var {mongoose}=require('./db/mongoose.js');//connect to database
+var {user}=require('./models/users.js'); //connect to user model
+var expressValidator=require('express-validator'); //for checking valid input value
 
-app.use(express.static(path.join(__dirname,'../public')));
-app.use(express.static(path.join(__dirname,'../views')));
-app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname,'../public')));  //middleware for static file
+app.use(express.static(path.join(__dirname,'../views')));  //middleware for static view engine
+app.use(bodyParser.json()); //for json data
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
-app.use(expressValidator());
+app.use(expressValidator()); //for check validation
 
 //set a view engine hbs
 
 app.set('view engine','hbs');
-var port=process.env.PORT || 3000;
+var port=process.env.PORT || 3000;  //for running on differnt PORT
+// for when page start
 app.get('/',(req,res)=>{
 
   res.render('start');
 
 });
 
-
+//for login page
 
 app.all('/login',(req,res)=>{
 if(req.method.toLowerCase() != "post")
 {
 return res.render('login');
 }
-
+//find the existing user in database
 user.findOne({email:req.body.email,password:req.body.psw}).then((docs)=>{
 if(!docs)
 {
+  //if user not found then give errors
   res.send('<script>alert("username and paasword is not valid"); window.location="/login"</script>');
 
 }
 else {
+  //if success then send it to dashboard
   res.render('dashboard');
 }
 },(err)=>{
+  //some error to open database
   res.render('404');
 });
 
 });
 
+//for register page
 
 app.all('/register',(req,res)=>{
 if(req.method.toLowerCase() != "post")
 {
 return res.render('register');
 }
-//console.log(req.body);
+//console.log(req.body);//validating the input data
 req.checkBody('email', 'please enter valid email').notEmpty().isEmail();
  req.checkBody('name', 'please enter alphabetic username of length 3 to 16 letters').notEmpty().isAlphanumeric().len(3,20);
  req.checkBody('psw', 'please enter valid password').notEmpty().len(3,16);
  req.checkBody('psw_repeat', 'password length must be in btw 3-6').len(3,16);
  req.checkBody('psw_repeat', 'confired password must be equal to paasword').equals(req.body.psw);
 
-var errors=req.validationErrors();
+var errors=req.validationErrors();  //if ther is then throw to users
 
 if(errors)
 {
   return res.status(400).render('register',{title:"application error",errors});
 }
+//if not then proceed to save in database
 
 var name=req.body.name;
 var email=req.body.email;
@@ -84,7 +90,7 @@ var users=new user({
   email:email,
   password:password
 });
-
+//check the database if their any similar email existing
 user.findOne({email:req.body.email,name:req.body.name}).then((docs)=>{
 if(!docs)
 {
@@ -110,7 +116,7 @@ else {
 });
 
 
- var references=[];
+ //for send the text Message
 
 app.post('/send',(req,res)=>{
   var lat=req.body.persons_lat;
@@ -130,18 +136,18 @@ var url=`https://www.google.com/maps?q=${lat},${lon}`;
     //  'method' : "GET" // The method used to call the url
   };
 
-  //Prints the complete response
-  // p.send_message(params, function (status, response) {
-  //     console.log('Status: ', status);
-  //     console.log('API Response:\n', response);
-  //     res.send(response);
-  //
-  // });
- res.send(params);
+//  Prints the complete response
+  p.send_message(params, function (status, response) {
+      console.log('Status: ', status);
+      console.log('API Response:\n', response);
+      res.render('home');
+
+  });
+
 
 });
 
-
+//for data
 
 app.all('/data',(req,res)=>{
   if(req.method.toLowerCase() != "post")
@@ -160,7 +166,7 @@ app.all('/data',(req,res)=>{
 
     //console.log(body.records);
     var data=body.records;
-    res.render('data',{title:data});
+    res.render('data',{title:data,state:state});
   });
 
 
@@ -173,6 +179,7 @@ app.get('/home', function(req, res){
 });
 
 
+//if no page is found then
 app.get('*', function(req, res){
   res.render('404');
 });
