@@ -1,4 +1,6 @@
-body {font-family: Arial;}
+body {font-family: Arial;
+}
+
 * {box-sizing: border-box}
 
 /* Full-width input fields */
@@ -65,10 +67,11 @@ button:hover {
   float: left;
   width: 50%;
 }
-
+#con{background: url(https://4.bp.blogspot.com/-cCTtUWbUjbo/VbHxXn1-qzI/AAAAAAAAGBo/Jt9LdGLOu9c/s1600/bg.jpg);}
 /* Add padding to container elements */
 .container {
     padding: 16px;
+
 }
 .btn {
   cursor: pointer;

@@ -3,18 +3,14 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-html {
-  background: url(https://4.bp.blogspot.com/-cCTtUWbUjbo/VbHxXn1-qzI/AAAAAAAAGBo/Jt9LdGLOu9c/s1600/bg.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+
 form {
     border: 3px solid #f1f1f1;
-    background: url(https://4.bp.blogspot.com/-cCTtUWbUjbo/VbHxXn1-qzI/AAAAAAAAGBo/Jt9LdGLOu9c/s1600/bg.jpg) no-repeat center center fixed;
-}
 
+}
+#con{
+    background: url(https://4.bp.blogspot.com/-cCTtUWbUjbo/VbHxXn1-qzI/AAAAAAAAGBo/Jt9LdGLOu9c/s1600/bg.jpg);
+}
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -91,6 +87,7 @@ span.psw {
 {{success}}
 </div>
 {{/if}}
+<div id='con'>
 <form action="/login" method='post'>
   <div class="imgcontainer">
     <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
@@ -111,9 +108,9 @@ span.psw {
 
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn" onclick="window.location='/'">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+  
   </div>
 </form>
-
+</div>
 </body>
 </html>

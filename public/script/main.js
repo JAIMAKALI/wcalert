@@ -1,9 +1,9 @@
-var output = document.getElementById("out");  //for map canvas
-var lat=document.getElementById('persons_lat'); //for person_lat
-var lon=document.getElementById('persons_lon'); //for person_lng
+var output = document.getElementById("out");   //for map canvas
+var lat=document.getElementById('persons_lat');  //for person_lat
+var lon=document.getElementById('persons_lon');  //for person_lng
 var accuracy=document.getElementById('location_accuracy'); //for location_accurary
-var locations=document.getElementById('location_address');  //for user current locations
-var police_address=document.getElementById('police_address'); //for nearest police station Name
+var locations=document.getElementById('location_address');   //for user current locations
+var police_address=document.getElementById('police_address');  //for nearest police station Name
 var map;  // for global variable
 var marker;
 var phoneno=document.getElementById('phone_no');  //for police mobile no

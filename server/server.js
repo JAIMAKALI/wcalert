@@ -130,7 +130,7 @@ var url=`https://www.google.com/maps?q=${lat},${lon}`;
   var params = {
       'src': '+919931897899', // Sender's phone number with country code
       'dst' : '+917004324388', // Receiver's phone Number with country code
-      'text' : `Women is in needed at ${req.body.location_address} which coordinate is lat: ${lat} and lon:${lon} and ${url}`// Your SMS Text Message - English
+      'text' : `Women is in need at ${req.body.location_address} which coordinate is lat: ${lat} and lon:${lon} and ${url}`// Your SMS Text Message - English
 
       //'url' : "http://example.com/report/", // The URL to which with the status of the message is sent
     //  'method' : "GET" // The method used to call the url
