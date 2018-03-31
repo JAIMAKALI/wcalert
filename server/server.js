@@ -123,8 +123,8 @@ app.post('/send',(req,res)=>{
   var lon=req.body.persons_lon;
 var url=`https://www.google.com/maps?q=${lat},${lon}`;
   var p = plivo.RestAPI({
-    authId: 'MANZK1YJIXNZLLMJU1OT',
-    authToken: 'NzZjZDJjMjhiM2M4NThhNDI4ZDRjMTlmOWRiYjEw'
+    authId: 'MANZK1YJIXNZLL',
+    authToken: 'NzZjZDJjMjhiM2M4NThhNDI4ZDRjMTlmO'
   });
 
   var params = {
